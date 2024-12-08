@@ -13,7 +13,7 @@
         const main = document.querySelector("h1");
 
         async function send(){
-            let res = await fetch(window.location.href, {
+            let res = await fetch("http://localhost:3000/dynamic", {
                 method:"POST",
                 headers:{
                     "Content-Type":"text/plain"

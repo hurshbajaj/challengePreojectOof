@@ -1,12 +1,14 @@
 const http = require('http');
 const fs = require("fs");
 const path = require("path")
+
+let params = "No Params Given"
+
 let server = http.createServer((req, res) => {
     let baseURL = req.url.split("?")[0]
-    let params = req.url.split("?")[1];
     console.log(params)
-    if(params === undefined || !params){
-        params = "No Params Provided"
+    if(req.url.split("?")[1]){
+        params = req.url.split("?")[1];
     }
     if(req.method != "POST"){
         switch (baseURL) {
