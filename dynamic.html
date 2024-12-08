@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Hello! Your dynamic text is,</p>
+    <h1></h1>
+
+    <script>
+        const main = document.querySelector("h1");
+
+        async function send(){
+            let res = await fetch(window.location.href, {
+                method:"POST",
+                headers:{
+                    "Content-Type":"text/plain"
+                }
+            })
+            main.textContent = await res.text();
+        }
+
+        send()
+        
+
+    </script>
+</body>
+</html>
